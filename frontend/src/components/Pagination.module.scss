@@ -1,0 +1,35 @@
+@import '../styles/variables';
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+
+    button {
+        background-color: $card-bg;
+        color: $text-primary;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: $border-radius;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-weight: 600;
+
+        &:hover:not(:disabled) {
+            background-color: $accent-orange;
+            transform: translateY(-2px);
+        }
+
+        &:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+    }
+
+    .info {
+        color: $text-secondary;
+        font-weight: 500;
+    }
+}

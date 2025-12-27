@@ -1,0 +1,133 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    background-color: $card-bg;
+    border-radius: $border-radius;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    display: flex;
+
+    @include mobile {
+        flex-direction: column;
+    }
+
+    .imageCol {
+        flex: 0 0 40%;
+        position: relative;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 400px;
+        }
+    }
+
+    .contentCol {
+        flex: 1;
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+
+        .header {
+            margin-bottom: 2rem;
+
+            h1 {
+                font-size: 2.5rem;
+                font-weight: 900;
+                color: $text-primary;
+                margin-bottom: 0.5rem;
+            }
+
+            .subtitle {
+                color: $text-secondary;
+                font-size: 1.1rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+
+                .statusDot {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+
+                    &.Alive {
+                        background-color: $status-alive;
+                    }
+
+                    &.Dead {
+                        background-color: $status-dead;
+                    }
+
+                    &.unknown {
+                        background-color: $status-unknown;
+                    }
+                }
+            }
+        }
+
+        .infoGrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+
+            .item {
+                .label {
+                    display: block;
+                    font-size: 0.85rem;
+                    color: $text-secondary;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    margin-bottom: 0.3rem;
+                }
+
+                .value {
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    color: $text-primary;
+                }
+            }
+        }
+
+        .aiSection {
+            margin-top: auto;
+            background: rgba($accent-green, 0.08);
+            border: 1px solid rgba($accent-green, 0.2);
+            border-radius: $border-radius;
+            padding: 1.5rem;
+
+            h3 {
+                color: $accent-green;
+                display: flex;
+                align-items: center;
+                gap: 0.6rem;
+                margin-bottom: 0.8rem;
+                font-size: 1.1rem;
+            }
+
+            p {
+                color: $text-secondary;
+                font-style: italic;
+                line-height: 1.6;
+            }
+        }
+
+        .backButton {
+            margin-top: 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: $text-secondary;
+            font-weight: 600;
+            transition: color $transition-speed;
+
+            &:hover {
+                color: $accent-orange;
+            }
+        }
+    }
+}

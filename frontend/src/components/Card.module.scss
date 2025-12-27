@@ -1,0 +1,105 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.card {
+    background-color: $card-bg;
+    border-radius: $border-radius;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    @include card-hover;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .imageWrapper {
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        &:hover img {
+            transform: scale(1.1);
+        }
+    }
+
+    .content {
+        padding: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        flex: 1;
+
+        .header {
+            .name {
+                font-size: 1.5rem;
+                font-weight: 800;
+                margin-bottom: 0.3rem;
+                color: $text-primary;
+                line-height: 1.1;
+
+                a {
+                    &:hover {
+                        color: $accent-orange;
+                    }
+                }
+            }
+
+            .status {
+                display: flex;
+                align-items: center;
+                font-size: 1rem;
+                font-weight: 500;
+
+                .dot {
+                    width: 9px;
+                    height: 9px;
+                    border-radius: 50%;
+                    margin-right: 0.5rem;
+
+                    &.alive {
+                        background-color: $status-alive;
+                        box-shadow: 0 0 5px $status-alive;
+                    }
+
+                    &.dead {
+                        background-color: $status-dead;
+                    }
+
+                    &.unknown {
+                        background-color: $status-unknown;
+                    }
+                }
+            }
+        }
+
+        .section {
+            display: flex;
+            flex-direction: column;
+
+            .label {
+                color: $text-secondary;
+                font-size: 0.85rem;
+                font-weight: 500;
+            }
+
+            .value {
+                color: $text-primary;
+                font-size: 1.1rem;
+                // white-space: nowrap;
+                // overflow: hidden;
+                // text-overflow: ellipsis;
+
+                &:hover {
+                    color: $accent-orange;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
